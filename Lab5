@@ -1,20 +1,29 @@
 # Diego Nobrega
 # 03/08/2024
-# Convert the bottle return program to python code
-# Lab 5 The Bottle return program
+# Lab 5 - Convert the Bottle Return Program to Python code
 
-totalBottles = 0
-todayBottles = 0
-counter = 1
-totalPayout = 0
-keepGoing = 'y'
-PAYOUT_PER_BOTTLE = .10
+keepGoing = 'y' # loop control variable
 
-while counter <=  7:
-    totalBottles = input('Enter number of bottles for day #1: ')
-    totalPayout = totalBottles * PAYOUT_PER_BOTTLE
-    print('The total number of bottles collected is' + totalBottles)
-    print("Do you want to enter another week's worth of data?:")
-    print('Enter y or n:')
-    input=keepGoing
-    counter = counter +1
+while keepGoing == 'y':
+    print() #prints a blank line
+    totalBottles = 0 # variable initialized to 0
+    todayBottles = 0 # variable initialized to 0
+    counter = 1 # variable initialized to 1
+
+    # get the number of bottles returned
+    while counter <= 7: 
+        todayBottles = int(input('Enter number of bottles for today: '))
+        totalBottles = totalBottles + todayBottles
+        counter = counter + 1 #end while loop
+
+    # calculate the payout
+    totalPayout = 0 # variable initialized to 0
+    totalPayout = totalBottles * .10
+
+    # display the information
+    print('The total number of bottles collected is', totalBottles)
+    print('The total paid out is $', totalPayout)
+
+    print()
+
+    keepGoing = input('Do you want to enter another week\'n worth of data? (Enter y or n): ')
