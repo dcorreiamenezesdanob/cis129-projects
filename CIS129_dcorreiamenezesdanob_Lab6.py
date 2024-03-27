@@ -1,5 +1,6 @@
 # Diego Nobrega
 # Lab6
+# Hot Dog Cookout Calculator
 
 def main():
 
