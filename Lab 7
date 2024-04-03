@@ -1,0 +1,67 @@
+# Diego Nobrega
+# 04/02/2024
+# Lab 7
+# Program that generates income from ticket sales
+
+'''Validates user input betwene range '''
+
+def validateInput(minVal,maxVal,actualVal):    
+    try:
+        #Check integer conversion
+        actualVal = int(actualVal)
+        #Check range
+        if actualVal>=minVal and actualVal<=maxVal:
+            return True
+        else:
+            print('Invalid input, please enter a number between',minVal,'and',maxVal)
+            return False
+    except valueError:
+        print('Invalid input, please enter a number between',minVal,'and',maxVal)
+        return False
+
+# main code
+def main():
+    #Declare constants
+    TOTAL_SEATS_SEC_A = 300
+    TOTAL_SEATS_SEC_B = 500
+    TOTAL_SEATS_SEC_C = 200
+    SEC_A_COST = 20
+    SEC_B_COST = 15
+    SEC_C_COST = 10
+    valid=False
+    subTotalSec_A = 0
+    subTotalSec_B = 0
+    subTotalSec_C = 0
+    overallTotal = 0
+    # get inputs that validates data for section A
+    while valid==False:
+        secASeats = input('Please enter number of tickets in Section A: ')
+        valid = validateInput(1 , TOTAL_SEATS_SEC_A, secASeats)
+        secASeats = int(secASeats) 
+        subTotalSec_A = secASeats * SEC_A_COST
+    valid=False
+    # get inputs that validates data for section B
+    while valid==False:
+        secBSeats = input('Please enter number of tickets in Section B: ')
+        valid = validateInput(1 , TOTAL_SEATS_SEC_B, secBSeats)
+        secBSeats = int(secBSeats) 
+        subTotalSec_B = secBSeats * SEC_B_COST
+    valid=False
+    # get inputs that validates data for section C
+    while valid==False:
+        secCSeats = input('Please enter number of tickets in Section C: ')
+        valid = validateInput(1 , TOTAL_SEATS_SEC_C, secCSeats)
+        secCSeats = int(secCSeats) 
+        subTotalSec_C = secCSeats * SEC_C_COST
+    
+    # total calculation
+    overallTotal = subTotalSec_A + subTotalSec_B + subTotalSec_C
+    # output costs
+    print('\n\nDetails of Ticket Costs\n')
+    print('\ntotal ticket cost:',overallTotal)
+    print('\nSection A seats:',secASeats,'\n','Section A sub total:',subTotalSec_A)
+    print('Section B seats:',secBSeats,'\n','Section B sub total:',subTotalSec_B)
+    print('Section C seats:',secCSeats,'\n','Section C sub total:',subTotalSec_C)
+    
+    
+main()
