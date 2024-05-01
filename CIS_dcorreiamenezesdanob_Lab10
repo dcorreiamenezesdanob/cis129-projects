@@ -1,0 +1,21 @@
+# Diego Nobrega
+# Lab 10
+# Exercise 8.1
+# Program that inputs a dollar amount, then prints the amount in check-protected format in a field of 10 characters with leading asterisks
+
+def main():
+    # amount = '399.87' this represents the dollar amount
+
+    amount = get_float('Please enter a dollar amount for the check: ')
+    message = f'{amount:*>10.2f}'
+    print(message)
+
+def get_float(message):
+    while True:
+        try:
+            user_input = float(input(message))
+            return user_input
+        except ValueError:
+            print('Incorrect data entered, please re-attempt')
+            
+main() # Calls main starts the program
